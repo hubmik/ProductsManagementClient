@@ -1,0 +1,52 @@
+.card {
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+input {
+  padding: 8px 10px;
+  border: 1px solid #8c959f;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1f6feb;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.error {
+  color: #cf222e;
+}
+
+.success {
+  color: #1a7f37;
+}

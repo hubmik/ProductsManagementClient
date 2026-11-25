@@ -1,0 +1,37 @@
+<section class="card">
+  <div class="header">
+    <h2>Lista produktów</h2>
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="loadProducts()"
+        placeholder="Szukaj po nazwie..."
+      />
+      <button type="button" (click)="loadProducts()">Szukaj</button>
+      <button type="button" class="secondary" (click)="clearSearch()">Wyczyść</button>
+    </div>
+  </div>
+
+  <p *ngIf="isLoading">Ładowanie produktów...</p>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <table *ngIf="!isLoading && products.length > 0">
+    <thead>
+      <tr>
+        <th>Kod</th>
+        <th>Nazwa</th>
+        <th>Cena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.code }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | number:'1.2-2' }} zł</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!isLoading && products.length === 0">Brak produktów do wyświetlenia.</p>
+</section>

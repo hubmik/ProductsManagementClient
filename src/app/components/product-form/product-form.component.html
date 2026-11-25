@@ -1,0 +1,49 @@
+<section class="card">
+  <h2>Dodaj nowy produkt</h2>
+
+  <form (ngSubmit)="onSubmit()" class="form">
+    <div class="field">
+      <label for="code">Kod</label>
+      <input
+        id="code"
+        name="code"
+        type="text"
+        [(ngModel)]="product.code"
+        placeholder="np. ME-11"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="name">Nazwa</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        [(ngModel)]="product.name"
+        placeholder="np. Toster turbo"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label for="price">Cena (PLN)</label>
+      <input
+        id="price"
+        name="price"
+        type="number"
+        step="0.01"
+        min="0.01"
+        [(ngModel)]="product.price"
+        required
+      />
+    </div>
+
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Dodawanie...' : 'Dodaj produkt' }}
+    </button>
+  </form>
+
+  <p *ngIf="errorMessage" class="message error">{{ errorMessage }}</p>
+  <p *ngIf="successMessage" class="message success">{{ successMessage }}</p>
+</section><p>product-form works!</p>
